@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+    guest:
+        build:
+            context: ./
+            
+            dockerfile: dockerfile
+        restart: unless-stopped
+        
+        ports:
+            - 3000:3000
+        # labels:
+        #     # guests
+        #     - "traefik.enable=true"
+        #     - "traefik.http.routers.guests.rule=Host(`guest.fuchsclan.de`)"
+        #     - "traefik.http.routers.guests.entrypoints=websecure"
+        #     - "traefik.http.routers.guests.service=guests"
+        #     - "traefik.http.routers.guests.tls.certresolver=myresolver"
+        #     - "traefik.http.services.guest.loadbalancer.server.port=3000" # I'm setting up the reverse proxy to target 3000 as we defined in the Dockerfile.
+          
+
+       
+
+  
