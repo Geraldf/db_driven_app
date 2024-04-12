@@ -50,6 +50,7 @@ function InputForm() {
     })
   }
 
+  
   return (
     <div className='flex justify-center'>
       <Card className='w-[350px] '>
