@@ -1,5 +1,13 @@
 {
     "english": "Englisch",
     "swedish": "Schwedisch",
-    "chinese": "Chinesisch"
+    "chinese": "Chinesisch",
+    "german": "Deutsch",
+    "login": {
+      "login": "Anmelden",
+      "register": "Registrieren",
+      "logout": "Abmelden",
+      "subtitle": "Bitte geben Sie Ihre Anmeldedaten ein"
+    }
   }
+

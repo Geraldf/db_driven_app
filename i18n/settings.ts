@@ -1,7 +1,7 @@
 import type {InitOptions} from 'i18next';
 
 export const FALLBACK_LOCALE = 'en';
-export const supportedLocales = ['en', 'zh-CN', 'sv'] as const;
+export const supportedLocales = ['en', 'zh-CN', 'sv','de'] as const;
 export type Locales = (typeof supportedLocales)[number];
 
 // You can name the cookie to whatever you want

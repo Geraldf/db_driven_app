@@ -1,5 +1,12 @@
 {
   "english": "中国人",
   "swedish": "英语",
-  "chinese": "瑞典"
+  "chinese": "瑞典",
+  "german": "德语",
+  "login": {
+    "login": "登录",
+    "register": "注册",
+    "logout": "登出",
+    "subtitle": "请输入您的凭据"
+  }
 }

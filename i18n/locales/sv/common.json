@@ -1,5 +1,12 @@
 {
   "english": "engelska",
   "swedish": "svenska",
-  "chinese": "kinesiska"
+  "chinese": "kinesiska",
+  "german": "tysm",
+  "login":{
+    "login": "Logga in",
+    "register": "Registrera",
+    "logout": "Logga ut",
+    "subtitle": "Vänligen ange dina inloggningsuppgifter"
+  }
 }
