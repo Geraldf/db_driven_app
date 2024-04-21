@@ -8,5 +8,8 @@
     "register": "Registrera",
     "logout": "Logga ut",
     "subtitle": "Vänligen ange dina inloggningsuppgifter"
-  }
+  },
+"email":"E-Post",
+"password":"lösenord"
+
 }

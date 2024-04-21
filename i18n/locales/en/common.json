@@ -8,5 +8,7 @@
     "register": "Register",
     "logout": "Logout",
     "subtitle": "Please enter your credentials"
-  }
+  },
+  "email":"E-Mail",
+  "password":"Password"
 }

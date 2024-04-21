@@ -8,6 +8,8 @@
       "register": "Registrieren",
       "logout": "Abmelden",
       "subtitle": "Bitte geben Sie Ihre Anmeldedaten ein"
-    }
+    },
+    "email":"E-Mail",
+    "password":"Passwort"
   }
 
