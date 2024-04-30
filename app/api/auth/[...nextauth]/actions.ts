@@ -1,9 +1,12 @@
 "use server";
 
-import { EventCallbacks } from "next-auth";
-import prisma from "../../../../prisma/prismaClient";
 
-export const createUser: EventCallbacks["createUser"] = async ({ user }) => {
+
+import { AdapterUser } from "next-auth/adapters";
+import prisma from "../../../../prisma/prismaClient";
+import { createTransport } from "nodemailer"
+
+export const createUser = async (user:AdapterUser) => {
 	//placeholder
 	await prisma.user
 		.update({
@@ -17,3 +20,4 @@ export const createUser: EventCallbacks["createUser"] = async ({ user }) => {
 			console.error(e);
 		});
 };
+

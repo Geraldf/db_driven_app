@@ -135,7 +135,7 @@ export default function Form({ schema, onSubmit, className }: Props) {
       /> */}
       <div className='pt-4'>
         <Button type='submit' className='h-9 bg-blue-500'>
-          {isSubmitting ? 'Submitting...' : 'Submit'}
+          {isSubmitting ? 'Submitting...' : t('login.login')}
         </Button>
       </div>
     </form>

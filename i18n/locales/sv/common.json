@@ -3,13 +3,17 @@
   "swedish": "svenska",
   "chinese": "kinesiska",
   "german": "tysm",
-  "login":{
+  "login": {
     "login": "Logga in",
     "register": "Registrera",
     "logout": "Logga ut",
     "subtitle": "Vänligen ange dina inloggningsuppgifter"
   },
-"email":"E-Post",
-"password":"lösenord"
-
+  "email": "E-Post",
+  "password": "lösenord",
+  "wronglogin": {
+    "title": "fel",
+    "sendagain":"Skicka igen",
+    "noverification": "Var god bekräfta din e-postadress först. Klicka på Skicka igen om du vill begära en bekräftelselänk via e-post igen.   "
+  }
 }

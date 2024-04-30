@@ -9,7 +9,8 @@ import { SiteHeader } from '@/components/site-header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { Toaster as DefaultToaster } from '@/registry/default/ui/toaster'
-import { getServerSession } from 'next-auth'
+import { auth } from "@/auth"
+
 import SessionWrapper from '@/components/SessionWrapper'
 
 import { LocaleProvider } from '@/hooks/locale-provider'
@@ -33,7 +34,7 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-  const session = await getServerSession()
+ 
   const locale = getLocale()
   return (
     <SessionWrapper>
@@ -70,3 +71,5 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     </SessionWrapper>
   )
 }
+
+

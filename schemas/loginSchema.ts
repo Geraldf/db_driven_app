@@ -15,7 +15,7 @@ export const Schema = z.object({
     .min(1)
     .email(),
   password: passwordSchema,
-  test: z.string()
+
 })
 
 export type SchemaInputType = z.input<typeof Schema>

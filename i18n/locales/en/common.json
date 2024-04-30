@@ -10,5 +10,11 @@
     "subtitle": "Please enter your credentials"
   },
   "email":"E-Mail",
-  "password":"Password"
+  "password":"Password",
+  "wronglogin":{
+    "title":"Error",
+    "sendagain":"Resend",
+    "noverification": "Please confirm your email address first. Click on 'Resend' if you want to request a verification link via email again."
+
+  }
 }

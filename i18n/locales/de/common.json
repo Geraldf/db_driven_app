@@ -1,15 +1,19 @@
 {
-    "english": "Englisch",
-    "swedish": "Schwedisch",
-    "chinese": "Chinesisch",
-    "german": "Deutsch",
-    "login": {
-      "login": "Anmelden",
-      "register": "Registrieren",
-      "logout": "Abmelden",
-      "subtitle": "Bitte geben Sie Ihre Anmeldedaten ein"
-    },
-    "email":"E-Mail",
-    "password":"Passwort"
+  "english": "Englisch",
+  "swedish": "Schwedisch",
+  "chinese": "Chinesisch",
+  "german": "Deutsch",
+  "login": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "subtitle": "Bitte geben Sie Ihre Anmeldedaten ein"
+  },
+  "email": "E-Mail",
+  "password": "Passwort",
+  "wronglogin": {
+    "title": "Fehler",
+    "sendagain":"Nochmal Senden",
+    "noverification": "Bitte bestätigen Sie erst Ihre E-Mail Adresse. Klicken sie auf 'Nochmal Senden', wenn sie nochmal einen bestätigungslink per E-Mail anfordern.   "
   }
-
+}
