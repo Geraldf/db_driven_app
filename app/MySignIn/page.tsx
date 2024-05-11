@@ -1,9 +1,18 @@
-'use client'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+"use client"
 
-import { Button } from '@/components/ui/button'
+import { useTranslation } from "@/i18n/client"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import {
   Form,
   FormControl,
@@ -11,69 +20,58 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { toast } from '@/components/ui/use-toast'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/card'
-import { useTranslation } from '@/i18n/client'
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { toast } from "@/components/ui/use-toast"
 
 const FormSchema = z.object({
   username: z.string().min(2, {
-    message: 'Username must be at least 2 characters.'
-  })
+    message: "Username must be at least 2 characters.",
+  }),
 })
 
 function InputForm() {
-  const { i18n, t } = useTranslation('common')
+  const { i18n, t } = useTranslation("common")
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: ''
-    }
+      username: "",
+    },
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
-      title: 'You submitted the following values:',
+      title: "You submitted the following values:",
       description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
         </pre>
-      )
+      ),
     })
   }
 
-  
   return (
-    <div className='flex justify-center'>
-      <Card className='w-[350px] '>
+    <div className="flex justify-center">
+      <Card className="w-[350px] ">
         <CardHeader>
-          <CardTitle>{t('login.login')}</CardTitle>
-          <CardDescription>
-            {t('login.subtitle')}
-          </CardDescription>
+          <CardTitle>{t("login.login")}</CardTitle>
+          <CardDescription>{t("login.subtitle")}</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className='w-2/3 space-y-6'
+              className="w-2/3 space-y-6"
             >
               <FormField
                 control={form.control}
-                name='username'
+                name="username"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder='shadcn' {...field} />
+                      <Input placeholder="shadcn" {...field} />
                     </FormControl>
                     <FormDescription>
                       This is your public display name.
@@ -82,7 +80,7 @@ function InputForm() {
                   </FormItem>
                 )}
               />
-              <Button type='submit'>Submit</Button>
+              <Button type="submit">Submit</Button>
             </form>
           </Form>
         </CardContent>

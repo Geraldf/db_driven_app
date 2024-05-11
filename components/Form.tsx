@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { useTranslation } from '@/i18n/client'
+import { useTranslation } from "@/i18n/client"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { z, ZodObject, ZodSchema } from "zod"
 
 //import { SchemaInputType, FieldNames, Schema } from '@/schemas/loginSchema'
-import FormInput from './FormInput'
-import { z, ZodSchema, ZodObject } from 'zod'
-import { Button } from './ui/button'
+import FormInput from "./FormInput"
+import { Button } from "./ui/button"
 
 type Props = {
   schema: any
@@ -18,16 +18,16 @@ export default function Form({ schema, onSubmit, className }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting }
+    formState: { errors, isSubmitting },
   } = useForm<z.input<typeof schema>>({
     resolver: zodResolver(schema, {}, { raw: true }),
-    mode: 'all'
+    mode: "all",
   })
-  const { i18n, t } = useTranslation('common')
+  const { i18n, t } = useTranslation("common")
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={className}>
-      {Object.keys(schema.shape).map(fieldName => {
+      {Object.keys(schema.shape).map((fieldName) => {
         switch (schema.shape[fieldName].type) {
           default:
             return (
@@ -133,9 +133,9 @@ export default function Form({ schema, onSubmit, className }: Props) {
         error={errors.subscribe?.message}
         className="col-span-full"
       /> */}
-      <div className='pt-4'>
-        <Button type='submit' className='h-9 bg-blue-500'>
-          {isSubmitting ? 'Submitting...' : t('login.login')}
+      <div className="pt-4">
+        <Button type="submit" className="h-9 bg-blue-500">
+          {isSubmitting ? "Submitting..." : t("login.login")}
         </Button>
       </div>
     </form>

@@ -7,13 +7,15 @@
     "login": "Anmelden",
     "register": "Registrieren",
     "logout": "Abmelden",
-    "subtitle": "Bitte geben Sie Ihre Anmeldedaten ein"
+    "subtitle": "Bitte geben Sie Ihre Anmeldedaten ein",
+    "verifytitle": "Bestätigen Sie Ihre E-Mail Adresse",
+    "verifysubtitle": "Bitte schauen Sie in Ihre E-Mail, um einen Link zum Bestätigen zu erhalten."
   },
   "email": "E-Mail",
   "password": "Passwort",
   "wronglogin": {
     "title": "Fehler",
-    "sendagain":"Nochmal Senden",
+    "sendagain": "Nochmal Senden",
     "noverification": "Bitte bestätigen Sie erst Ihre E-Mail Adresse. Klicken sie auf 'Nochmal Senden', wenn sie nochmal einen bestätigungslink per E-Mail anfordern.   "
   }
 }

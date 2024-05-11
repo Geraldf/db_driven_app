@@ -1,10 +1,6 @@
-"use client";
+"use client"
 
-import { IconTypeProps } from "@/types/nav";
-
-
-
-
+import { IconTypeProps } from "@/types/nav"
 
 export const CircleOff = (props: IconTypeProps) => (
   <svg

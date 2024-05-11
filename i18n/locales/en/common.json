@@ -7,14 +7,15 @@
     "login": "Login",
     "register": "Register",
     "logout": "Logout",
-    "subtitle": "Please enter your credentials"
+    "subtitle": "Please enter your credentials",
+    "verifytitle": "Please verify your email address",
+    "verifysubtitle": "Please check your email, we have sent you a verification link."
   },
-  "email":"E-Mail",
-  "password":"Password",
-  "wronglogin":{
-    "title":"Error",
-    "sendagain":"Resend",
+  "email": "E-Mail",
+  "password": "Password",
+  "wronglogin": {
+    "title": "Error",
+    "sendagain": "Resend",
     "noverification": "Please confirm your email address first. Click on 'Resend' if you want to request a verification link via email again."
-
   }
 }

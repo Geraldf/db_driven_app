@@ -7,13 +7,15 @@
     "login": "登录",
     "register": "注册",
     "logout": "登出",
-    "subtitle": "请输入您的凭据"
+    "subtitle": "请输入您的凭据",
+    "verifytitle": "请确认您的电子邮件地址",
+    "verifysubtitle": "请检查您的电子邮件，我们已向您发送了一个确认链接。"
   },
   "email": "电子邮件",
   "password": "密码",
   "wronglogin": {
     "title": "错误",
-    "sendagain":"重新发送",
+    "sendagain": "重新发送",
     "noverification": "请先确认您的电子邮件地址。如果需要再次通过电子邮件请求确认链接，请点击重新发送。"
   }
 }

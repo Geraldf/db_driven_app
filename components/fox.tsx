@@ -1,17 +1,18 @@
-import FoxLogo from './fox.svg'
-import Image from 'next/image'
+import Image from "next/image"
+
+import FoxLogo from "./fox.svg"
 
 // interface Props extends React.ComponentPropsWithoutRef<'svg'> {
-  
+
 // }
-interface Props{
+interface Props {
   className: string
 }
 
-export const Fox: React.FC<Props> = (props:Props) => {
+export const Fox: React.FC<Props> = (props: Props) => {
   return (
     <div {...props}>
-      <Image src={FoxLogo} alt='Fox logo' />
+      <Image src={FoxLogo} alt="Fox logo" />
     </div>
   )
 }

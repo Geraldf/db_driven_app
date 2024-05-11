@@ -1,14 +1,22 @@
-import type { NextAuthConfig } from 'next-auth'
+import { EmailConfig, EmailUserConfig } from "@auth/core/providers"
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { PrismaClient } from "@prisma/client"
+import type { NextAuthConfig } from "next-auth"
 
-import { sendVerificationRequest } from './actions/sendVerivicationRequest'
+import { sendVerificationRequest } from "./actions/resendVerification"
+import MyMailer from "./actions/SendMail"
 
-import Resend from '@auth/core/providers/resend'
+const prisma = new PrismaClient()
 
 export default {
+  adapter: PrismaAdapter(prisma),
   providers: [
-    Resend({
-      id: 'http-email',
-      sendVerificationRequest
-    })
-  ]
+    MyMailer({
+      id: "http-email",
+      from: "guestapp@fuchsclan.de",
+    }),
+  ],
+  pages: {
+    verifyRequest: "/verifyrequest", // (used for check email message)
+  },
 } satisfies NextAuthConfig

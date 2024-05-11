@@ -1,10 +1,10 @@
-'use client';
+"use client"
 
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { forwardRef, InputHTMLAttributes } from "react"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  error?: string;
-  label: string;
+  error?: string
+  label: string
 }
 
 const Input = forwardRef<HTMLInputElement, Props>(function Input(
@@ -12,20 +12,20 @@ const Input = forwardRef<HTMLInputElement, Props>(function Input(
   ref
 ) {
   return (
-    <fieldset className={`flex flex-col ${className ? className : ''}`}>
-      <label htmlFor={name} className="text-sm font-normal mb-1 pt-2 w-fit">
-        {label + (required ? ' *' : '')}
+    <fieldset className={`flex flex-col ${className ? className : ""}`}>
+      <label htmlFor={name} className="mb-1 w-fit pt-2 text-sm font-normal">
+        {label + (required ? " *" : "")}
       </label>
       <input
         ref={ref}
         id={name}
         name={name}
         {...rest}
-        className="ring-1 ring-gray-300 rounded-sm p-2 shadow-md w-full"
+        className="w-full rounded-sm p-2 shadow-md ring-1 ring-gray-300"
       />
       {error && <span className="text-sm text-red-600">{error}</span>}
     </fieldset>
-  );
-});
+  )
+})
 
-export default Input;
+export default Input

@@ -17,7 +17,7 @@ export interface MainNavItem extends NavItem {}
 
 export interface SidebarNavItem extends NavItemWithChildren {}
 
-export interface IconTypeProps{
+export interface IconTypeProps {
   width?: number
   height?: number
 }
