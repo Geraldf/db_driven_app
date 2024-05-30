@@ -1,8 +1,6 @@
-import { NextRequest, NextResponse } from "next/server"
 import { EmailConfig, EmailUserConfig } from "@auth/core/providers"
 import { Theme } from "@auth/core/types"
 
-const nodemailer = require("nodemailer")
 type Params = {
   identifier: string
   url: string
@@ -22,42 +20,16 @@ export default function MyMailer(config: EmailUserConfig): EmailConfig {
     from: process.env.EMAIL_FROM!,
     maxAge: 24 * 60 * 60,
     async sendVerificationRequest(params: Params): Promise<void> {
-      const res = SendMail(params)
-
-      // if (!res.ok)
-      //   throw new Error("Resend error: " + JSON.stringify(await res.json()))
+      try {
+        const res = await sendBrevo(params)
+      } catch (error) {
+        throw new Error("Error Sending mail" + JSON.stringify(error))
+      }
     },
     options: config,
   }
 }
-export async function SendMail(
-  params: Params
-): Promise<NextResponse<{ message: string }> | undefined> {
-  console.log("dealing with request")
 
-  // create transporter object
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ionos.de",
-    port: 587,
-    tls: {
-      ciphers: "SSLv3",
-      rejectUnauthorized: false,
-    },
-
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  })
-
-  try {
-    const { host } = new URL(params.url)
-
-    return NextResponse.json({ message: "Success: email was sent" })
-  } catch (error) {
-    NextResponse.json({ message: "COULD NOT SEND MESSAGE" }, { status: 500 })
-  }
-}
 function html(params: Params) {
   const { url, theme } = params
   const { host } = new URL(url)
@@ -106,4 +78,32 @@ function html(params: Params) {
 </body>
 `
 }
-// Email Text body (fallback for email clients that don't render HTML, e.g. feature phones)
+
+const sendBrevo = async (params: Params): Promise<void> => {
+  const sendto = { email: params.identifier }
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    // The body format will vary depending on provider, please see their documentation
+    // for further details.
+    body: JSON.stringify({
+      sender: {
+        name: "NextAuthExample",
+        email: `${process.env.EMAIL_USER}`,
+      },
+      to: [sendto],
+      subject: "Sign in to app",
+      htmlContent: html(params),
+    }),
+    // Authentication will also vary from provider to provider, please see their docs.
+    headers: {
+      "api-key": `${process.env.SMPT_API}`,
+      "content-type": "application/json",
+      accept: "application/json",
+    },
+    method: "POST",
+  })
+
+  if (!response.ok) {
+    const { errors } = await response.json()
+    throw new Error(JSON.stringify(errors))
+  }
+}
