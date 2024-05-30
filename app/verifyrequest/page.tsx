@@ -14,7 +14,7 @@ const VerifyRequestPage = () => {
   const { i18n, t } = useTranslation("common")
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-4">
         <Card className="w-[350px] ">
           <CardHeader className="pb-1">
             <CardTitle>{t("login.verifytitle")}</CardTitle>

@@ -1,7 +1,6 @@
 "use server"
 
 import { AdapterUser } from "next-auth/adapters"
-import { createTransport } from "nodemailer"
 
 import prisma from "../../../../prisma/prismaClient"
 

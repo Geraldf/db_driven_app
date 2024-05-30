@@ -4,18 +4,51 @@
   "chinese": "Chinesisch",
   "german": "Deutsch",
   "login": {
-    "login": "Anmelden",
+    "login": "Anmeldung",
     "register": "Registrieren",
-    "logout": "Abmelden",
-    "subtitle": "Bitte geben Sie Ihre Anmeldedaten ein",
-    "verifytitle": "Bestätigen Sie Ihre E-Mail Adresse",
-    "verifysubtitle": "Bitte schauen Sie in Ihre E-Mail, um einen Link zum Bestätigen zu erhalten."
+    "logout": "Ausloggen",
+    "subtitle": "Bitte geben Sie Ihre Zugangsdaten ein",
+    "verifytitle": "Um sich anzumelden, besuchen Sie Ihre E-Mail-Postfach",
+    "verifysubtitle": "Wir haben Ihnen eine E-Mail geschickt. Wenn Sie auf den Link in der E-Mail klicken, wird Sie mit dem Anmeldevorgang angemeldet."
   },
-  "email": "E-Mail",
+  "email": "Email",
   "password": "Passwort",
   "wronglogin": {
     "title": "Fehler",
-    "sendagain": "Nochmal Senden",
-    "noverification": "Bitte bestätigen Sie erst Ihre E-Mail Adresse. Klicken sie auf 'Nochmal Senden', wenn sie nochmal einen bestätigungslink per E-Mail anfordern.   "
+    "sendagain": "Erneut senden",
+    "noverification": "Bitte bestätigen Sie zunächst Ihre E-Mail-Adresse. "
+  },
+  "submit": "Absenden",
+
+  "guest": {
+    "model": {
+      "firstName": "Bitte geben Sie den Vornamen ein",
+      "lastName": "Nachname",
+      "email": "Email",
+      "address": "Straße",
+      "city": "Stadt",
+      "state": "Bundesland",
+      "zip": "Postleitzahl",
+      "country": "Land",
+      "phone": "Telefon",
+      "id": "ID",
+      "isDefault": "Standard"
+    },
+    "new": {
+      "title": "Neuer Gast",
+      "subtitle": "Bitte geben Sie die Daten des Gastes ein",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "Email",
+      "address": "Straße",
+      "city": "Stadt",
+      "state": "Bundesland",
+      "zip": "Postleitzahl",
+      "country": "Land",
+      "phone": "Telefon",
+      "id": "ID",
+      "isDefault": "Standard",
+      "duplicate": "E-Mail existiert bereits"
+    }
   }
 }

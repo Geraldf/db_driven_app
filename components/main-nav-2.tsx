@@ -60,6 +60,9 @@ export function NavigationMenuDemo() {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="p-  grid md:w-[400px] lg:w-[500px] ">
+              <ListItem href="/guest/new" title="Gast Anlegen">
+                Zum erfassen einer Gästeadresse
+              </ListItem>
               <ListItem href="/guest/list" title="Gästeliste">
                 Zeigt eine Liste aller Gäste an
               </ListItem>

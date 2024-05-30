@@ -52,7 +52,7 @@ function Page() {
     const formData = new FormData()
     let res
 
-    const { email, password } = data
+    const { email } = data
 
     // Generate magic link
 
@@ -69,8 +69,8 @@ function Page() {
           <Form
             schema={Schema}
             onSubmit={onSubmit}
+            className="mt-2  grid grid-flow-row grid-cols-1 gap-4 rounded-md p-4 pt-2"
             //className='grid grid-cols-1 gap-1 sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-4'
-            className="mt-2  rounded-md p-4 pt-2"
           ></Form>
           {err && (
             <Alert variant="destructive">

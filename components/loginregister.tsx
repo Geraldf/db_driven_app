@@ -18,7 +18,7 @@ export default async function LoginRegister({}: Props) {
       <div className="flex gap-2">
         {!session && (
           <>
-            <Link href="/test">
+            <Link href="/signin">
               <Button className="h-9 bg-blue-500">
                 <LogIn className="mr-2 h-4 w-4" /> {t("login.login")}
               </Button>

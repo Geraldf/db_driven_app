@@ -1,9 +1,7 @@
-import { EmailConfig, EmailUserConfig } from "@auth/core/providers"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 import type { NextAuthConfig } from "next-auth"
 
-import { sendVerificationRequest } from "./actions/resendVerification"
 import MyMailer from "./actions/SendMail"
 
 const prisma = new PrismaClient()
@@ -13,10 +11,11 @@ export default {
   providers: [
     MyMailer({
       id: "http-email",
-      from: "guestapp@fuchsclan.de",
+      from: process.env.EMAIL_FROM!,
     }),
   ],
   pages: {
     verifyRequest: "/verifyrequest", // (used for check email message)
+    signIn: "/signin",
   },
 } satisfies NextAuthConfig

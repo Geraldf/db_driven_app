@@ -1,10 +1,12 @@
 "use client"
 
+import { usePathname } from "next/navigation"
 import { useTranslation } from "@/i18n/client"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { SubmitHandler, useForm } from "react-hook-form"
-import { z, ZodObject, ZodSchema } from "zod"
+import { useForm } from "react-hook-form"
+import { boolean, z } from "zod"
 
+import FormBool from "./FormBool"
 //import { SchemaInputType, FieldNames, Schema } from '@/schemas/loginSchema'
 import FormInput from "./FormInput"
 import { Button } from "./ui/button"
@@ -13,8 +15,14 @@ type Props = {
   schema: any
   onSubmit: (val: z.infer<any>) => void
   className?: string
+  submitText?: string
 }
-export default function Form({ schema, onSubmit, className }: Props) {
+export default function Form({
+  schema,
+  onSubmit,
+  className,
+  submitText,
+}: Props) {
   const {
     register,
     handleSubmit,
@@ -24,16 +32,34 @@ export default function Form({ schema, onSubmit, className }: Props) {
     mode: "all",
   })
   const { i18n, t } = useTranslation("common")
-
+  const pathname = usePathname().replaceAll("/", ".").substring(1)
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      username: "",
+    },
+  })
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={className}>
       {Object.keys(schema.shape).map((fieldName) => {
-        switch (schema.shape[fieldName].type) {
+        const ty = schema.shape[fieldName].type
+        const field = schema.shape[fieldName]
+        switch (field._def.typeName) {
+          case "ZodBoolean":
+            return (
+              <FormBool
+                key={fieldName}
+                label={t(fieldName) as string}
+                {...register(fieldName)}
+                error={errors[fieldName]?.message as string}
+                required={schema.shape[fieldName].minLength > 0}
+              />
+            )
           default:
             return (
               <FormInput
                 key={fieldName}
-                label={t(fieldName) as string}
+                label={t(`${pathname}.${fieldName}`) as string}
                 {...register(fieldName)}
                 error={errors[fieldName]?.message as string}
                 required={schema.shape[fieldName].minLength > 0}
@@ -133,9 +159,9 @@ export default function Form({ schema, onSubmit, className }: Props) {
         error={errors.subscribe?.message}
         className="col-span-full"
       /> */}
-      <div className="pt-4">
+      <div className="flex h-full items-end justify-end">
         <Button type="submit" className="h-9 bg-blue-500">
-          {isSubmitting ? "Submitting..." : t("login.login")}
+          {isSubmitting ? "Submitting..." : t(submitText || "submit")}
         </Button>
       </div>
     </form>

@@ -18,7 +18,7 @@ export async function SiteHeader() {
 
           <ChangeLocale />
           <LoginRegister />
-          <Logout />
+          {session && <Logout />}
         </div>
       </div>
     </header>
