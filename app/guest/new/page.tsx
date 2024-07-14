@@ -1,13 +1,14 @@
 "use client"
 
 // src/app/posts/create/page.tsx
-import { useState } from "react"
-import { redirect, useRouter } from "next/navigation"
-import { auth } from "@/auth"
+import { useActionState, useState } from "react"
+import { useRouter } from "next/navigation"
 import { useTranslation } from "@/i18n/client"
 import { guestAdressModel } from "@/prisma/zod"
+import { EMPTY_FORM_STATE } from "@/utils/to-form-state"
 import { AlertCircle } from "lucide-react"
 
+import { useFormReset } from "@/hooks/use-form-reset"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import {
   Card,
@@ -18,35 +19,29 @@ import {
 } from "@/components/ui/card"
 import { FormForm } from "@/components/FormForm"
 
+import { addAddress } from "./actions"
+
+type InitialStateType = {
+  errors: {
+    fieldErrors: Record<string, unknown>
+    formErrors: unknown[]
+  }
+}
+
+const initialState: InitialStateType = {
+  errors: {
+    fieldErrors: {},
+    formErrors: [],
+  },
+}
+
 function Page() {
   const router = useRouter()
   const [err, setErr] = useState<string | null>(null)
   const { i18n, t } = useTranslation("common")
+  const [formState, action] = useActionState(addAddress, EMPTY_FORM_STATE)
+  const formRef = useFormReset(formState)
 
-  async function addAddress(formData: FormData) {
-    const rawFormData = Object.fromEntries(formData)
-
-    const result = await fetch("/api/address", {
-      method: "POST",
-      body: JSON.stringify(rawFormData),
-    })
-    const d = await result.json()
-
-    if (result.ok) {
-      redirect("/")
-    } else {
-      if ((d.code = "P2002")) {
-        setErr(t("guest.new.duplicate"))
-      } else {
-        setErr(d.error)
-      }
-    }
-
-    // redirect to new page
-
-    // mutate data
-    // revalidate cache
-  }
   return (
     <div className="flex justify-center">
       <div className="grid-cols-1 grid-rows-2  gap-4">
@@ -58,18 +53,19 @@ function Page() {
           <CardContent className="p-0">
             <FormForm
               schema={guestAdressModel}
-              //onSubmit={submitData}
-              formAction={addAddress}
-              //className='grid grid-cols-1 gap-1 sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-4'
+              formAction={action}
+              formRef={formRef}
+              formState={formState}
               className="mt-2  grid grid-flow-row grid-cols-3 gap-4 rounded-md p-4 pt-2"
             ></FormForm>
           </CardContent>
         </Card>
-        {err && (
+
+        {formState.status == "ERROR" && (
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
             <AlertTitle>Error</AlertTitle>
-            <AlertDescription>{JSON.stringify(err)}</AlertDescription>
+            <AlertDescription>{formState.message}</AlertDescription>
           </Alert>
         )}
       </div>

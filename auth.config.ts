@@ -8,6 +8,19 @@ const prisma = new PrismaClient()
 
 export default {
   adapter: PrismaAdapter(prisma),
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        // User is available during sign-in
+        token.id = user.id
+      }
+      return token
+    },
+    session({ session, token }) {
+      session.user.id = token.id as string
+      return session
+    },
+  },
   providers: [
     MyMailer({
       id: "http-email",

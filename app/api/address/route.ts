@@ -11,7 +11,7 @@ export async function POST(req: Request, res: NextResponse) {
       data: body,
     })
     return NextResponse.json(result)
-  } catch (err) {
+  } catch (err: any) {
     // Remove the type annotation from the catch clause variable
     const s: string = getErrorMessageByCode(err.code)
 

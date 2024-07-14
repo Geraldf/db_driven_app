@@ -1,8 +1,8 @@
 import * as z from "zod"
-import * as imports from "../null"
-import { CompleteUser, RelatedUserModel } from "./index"
 
-export const AccountModel = z.object({
+import { RelatedUserModel, type CompleteUser } from "./index"
+
+const AccountModel = z.object({
   id: z.string(),
   userId: z.string(),
   type: z.string(),
@@ -29,6 +29,8 @@ export interface CompleteAccount extends z.infer<typeof AccountModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const RelatedAccountModel: z.ZodSchema<CompleteAccount> = z.lazy(() => AccountModel.extend({
-  user: RelatedUserModel.nullish(),
-}))
+export const RelatedAccountModel: z.ZodSchema<CompleteAccount> = z.lazy(() =>
+  AccountModel.extend({
+    user: RelatedUserModel.nullish(),
+  })
+)

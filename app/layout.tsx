@@ -1,72 +1,54 @@
-import "@/styles/globals.css"
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
 
-import { Viewport } from "next"
-import { Inter } from "next/font/google"
-import { auth } from "@/auth"
-import { getLocale } from "@/i18n/server"
-import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
+import "./globals.css";
 
-import { fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
-import { LocaleProvider } from "@/hooks/locale-provider"
-import { ThemeProvider } from "@/components/providers"
-import SessionWrapper from "@/components/SessionWrapper"
-import { SiteFooter } from "@/components/site-footer"
-import { SiteHeader } from "@/components/site-header"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeSwitcher } from "@/components/theme-switcher"
+import { ThemeProvider } from "@/providers/theme-provider";
+import AdminPanelLayout from "@/components/admin-panel/admin-panel-layout";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-})
-/*  */
+export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.APP_URL
+      ? `${process.env.APP_URL}`
+      : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : `http://localhost:${process.env.PORT || 3000}`
+  ),
+  title: "shadcn/ui sidebar",
+  description:
+    "A stunning and functional retractable sidebar for Next.js built on top of shadcn/ui complete with desktop and mobile responsiveness.",
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    url: "/",
+    title: "shadcn/ui sidebar",
+    description:
+      "A stunning and functional retractable sidebar for Next.js built on top of shadcn/ui complete with desktop and mobile responsiveness.",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "shadcn/ui sidebar",
+    description:
+      "A stunning and functional retractable sidebar for Next.js built on top of shadcn/ui complete with desktop and mobile responsiveness."
+  }
+};
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-}
-
-interface RootLayoutProps {
-  children: React.ReactNode
-}
-
-export default async function RootLayout({ children }: RootLayoutProps) {
-  const locale = getLocale()
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <SessionWrapper>
-      <html lang={locale} suppressHydrationWarning className={inter.className}>
-        <head />
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.className
-          )}
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div vaul-drawer-wrapper="">
-              <div className="relative flex min-h-screen flex-col bg-background font-sans">
-                <LocaleProvider value={locale}>
-                  <SiteHeader />
-                  <main className="flex-1">{children}</main>
-                  <SiteFooter />
-                </LocaleProvider>
-              </div>
-            </div>
-            <TailwindIndicator />
-            <ThemeSwitcher />
-
-            <DefaultToaster />
-          </ThemeProvider>
-        </body>
-      </html>
-    </SessionWrapper>
-  )
+    <html lang="en" suppressHydrationWarning>
+      <body className={GeistSans.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <AdminPanelLayout>
+          {children}
+          </AdminPanelLayout>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }

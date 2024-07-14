@@ -1,22 +1,22 @@
-import { z } from "zod"
+import { z } from "zod";
 
 const passwordSchema = z
-  .string({
-    required_error: "Password is required",
-  })
-  .min(6)
+	.string({
+		required_error: "Password is required",
+	})
+	.min(6);
 
 export const Schema = z.object({
-  email: z
-    .string({
-      required_error: "Email is required",
-    })
-    .trim()
-    .min(1)
-    .email(),
-})
+	email: z
+		.string({
+			required_error: "Email is required",
+		})
+		.trim()
+		.min(1)
+		.email(),
+});
 
-export type SchemaInputType = z.input<typeof Schema>
-export type SchemaOutputType = z.output<typeof Schema>
+export type SchemaInputType = z.input<typeof Schema>;
+type SchemaOutputType = z.output<typeof Schema>;
 
-export const FieldNames = Schema.keyof().options
+const FieldNames = Schema.keyof().options;

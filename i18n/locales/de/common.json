@@ -1,54 +1,54 @@
 {
-  "english": "Englisch",
-  "swedish": "Schwedisch",
-  "chinese": "Chinesisch",
-  "german": "Deutsch",
-  "login": {
-    "login": "Anmeldung",
-    "register": "Registrieren",
-    "logout": "Ausloggen",
-    "subtitle": "Bitte geben Sie Ihre Zugangsdaten ein",
-    "verifytitle": "Um sich anzumelden, besuchen Sie Ihre E-Mail-Postfach",
-    "verifysubtitle": "Wir haben Ihnen eine E-Mail geschickt. Wenn Sie auf den Link in der E-Mail klicken, wird Sie mit dem Anmeldevorgang angemeldet."
-  },
-  "email": "Email",
-  "password": "Passwort",
-  "wronglogin": {
-    "title": "Fehler",
-    "sendagain": "Erneut senden",
-    "noverification": "Bitte bestätigen Sie zunächst Ihre E-Mail-Adresse. "
-  },
-  "submit": "Absenden",
+	"english": "Englisch",
+	"swedish": "Schwedisch",
+	"chinese": "Chinesisch",
+	"german": "Deutsch",
+	"login": {
+		"login": "Anmeldung",
+		"register": "Registrieren",
+		"logout": "Ausloggen",
+		"subtitle": "Bitte geben Sie Ihre Zugangsdaten ein",
+		"verifytitle": "Um sich anzumelden, besuchen Sie Ihre E-Mail-Postfach",
+		"verifysubtitle": "Wir haben Ihnen eine E-Mail geschickt. Wenn Sie auf den Link in der E-Mail klicken, wird Sie mit dem Anmeldevorgang angemeldet."
+	},
+	"email": "Email",
+	"password": "Passwort",
+	"wronglogin": {
+		"title": "Fehler",
+		"sendagain": "Erneut senden",
+		"noverification": "Bitte bestätigen Sie zunächst Ihre E-Mail-Adresse. "
+	},
+	"submit": "Absenden",
 
-  "guest": {
-    "model": {
-      "firstName": "Bitte geben Sie den Vornamen ein",
-      "lastName": "Nachname",
-      "email": "Email",
-      "address": "Straße",
-      "city": "Stadt",
-      "state": "Bundesland",
-      "zip": "Postleitzahl",
-      "country": "Land",
-      "phone": "Telefon",
-      "id": "ID",
-      "isDefault": "Standard"
-    },
-    "new": {
-      "title": "Neuer Gast",
-      "subtitle": "Bitte geben Sie die Daten des Gastes ein",
-      "firstName": "Vorname",
-      "lastName": "Nachname",
-      "email": "Email",
-      "address": "Straße",
-      "city": "Stadt",
-      "state": "Bundesland",
-      "zip": "Postleitzahl",
-      "country": "Land",
-      "phone": "Telefon",
-      "id": "ID",
-      "isDefault": "Standard",
-      "duplicate": "E-Mail existiert bereits"
-    }
-  }
+	"guest": {
+		"model": {
+			"firstName": "Bitte geben Sie den Vornamen ein",
+			"lastName": "Nachname",
+			"email": "Email",
+			"address": "Straße",
+			"city": "Stadt",
+			"state": "Bundesland",
+			"zip": "Postleitzahl",
+			"country": "Land",
+			"phone": "Telefon",
+			"id": "ID",
+			"isDefault": "Standard"
+		},
+		"new": {
+			"title": "Neuer Gast",
+			"subtitle": "Bitte geben Sie die Daten des Gastes ein",
+			"firstName": "Vorname",
+			"lastName": "Nachname",
+			"email": "Email",
+			"address": "Straße",
+			"city": "Stadt",
+			"state": "Bundesland",
+			"zip": "Postleitzahl",
+			"country": "Land",
+			"phone": "Telefon",
+			"id": "ID",
+			"isDefault": "Standard",
+			"duplicate": "E-Mail existiert bereits"
+		}
+	}
 }

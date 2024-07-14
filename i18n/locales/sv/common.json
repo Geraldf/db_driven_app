@@ -1,40 +1,40 @@
 {
-  "english": "engelsk",
-  "swedish": "svenska",
-  "chinese": "kinesiska",
-  "german": "tysk",
-  "login": {
-    "login": "Logga in",
-    "register": "Registrera",
-    "logout": "Logga ut",
-    "subtitle": "Ange dina uppgifter",
-    "verifytitle": "För att logga in besök din e-post",
-    "verifysubtitle": "Vi har skickat ett e-postmeddelande till dig. "
-  },
-  "email": "E-post",
-  "password": "Lösenord",
-  "wronglogin": {
-    "title": "Fel",
-    "sendagain": "Skicka igen",
-    "noverification": "Vänligen bekräfta din e-postadress först. "
-  },
-  "submit": "Skicka",
-  "guest": {
-    "new": {
-      "title": "Ny gäst",
-      "subtitle": "Fyll i dina uppgifter",
-      "firstName": "Förnamn",
-      "lastName": "Efternamn",
-      "email": "E-post",
-      "address": "Adress",
-      "city": "Stad",
-      "state": "Stat",
-      "zip": "Postnummer",
-      "country": "Land",
-      "phone": "Telefon",
-      "id": "ID",
-      "isDefault": "Standard",
-      "duplicate": "Denna gäst finns redan. "
-    }
-  }
+	"english": "engelsk",
+	"swedish": "svenska",
+	"chinese": "kinesiska",
+	"german": "tysk",
+	"login": {
+		"login": "Logga in",
+		"register": "Registrera",
+		"logout": "Logga ut",
+		"subtitle": "Ange dina uppgifter",
+		"verifytitle": "För att logga in besök din e-post",
+		"verifysubtitle": "Vi har skickat ett e-postmeddelande till dig. "
+	},
+	"email": "E-post",
+	"password": "Lösenord",
+	"wronglogin": {
+		"title": "Fel",
+		"sendagain": "Skicka igen",
+		"noverification": "Vänligen bekräfta din e-postadress först. "
+	},
+	"submit": "Skicka",
+	"guest": {
+		"new": {
+			"title": "Ny gäst",
+			"subtitle": "Fyll i dina uppgifter",
+			"firstName": "Förnamn",
+			"lastName": "Efternamn",
+			"email": "E-post",
+			"address": "Adress",
+			"city": "Stad",
+			"state": "Stat",
+			"zip": "Postnummer",
+			"country": "Land",
+			"phone": "Telefon",
+			"id": "ID",
+			"isDefault": "Standard",
+			"duplicate": "Denna gäst finns redan. "
+		}
+	}
 }

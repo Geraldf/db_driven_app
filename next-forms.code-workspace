@@ -1,0 +1,33 @@
+{
+  "folders": [
+    {
+      "path": "../../node/next-forms",
+    },
+    {
+      "path": ".",
+    },
+    {
+      "path": "../custom-forms",
+    },
+  ],
+  "settings": {
+    "WillLuke.nextjs.addTypesOnSave": true,
+    "WillLuke.nextjs.hasPrompted": true,
+    "sqltools.connections": [
+      {
+        "mysqlOptions": {
+          "authProtocol": "default",
+          "enableSsl": "Disabled",
+        },
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 3306,
+        "driver": "MariaDB",
+        "name": "local",
+        "database": "guests",
+        "username": "Gerald",
+      },
+    ],
+    "biome.rename": true,
+  },
+}
