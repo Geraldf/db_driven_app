@@ -1,33 +1,35 @@
+import { useTranslation } from "@/i18n/client"
 import {
+  Bookmark,
+  LayoutGrid,
+  LucideIcon,
+  Settings,
+  SquarePen,
   Tag,
   Users,
-  Settings,
-  Bookmark,
-  SquarePen,
-  LayoutGrid,
-  LucideIcon
-} from "lucide-react";
+} from "lucide-react"
 
 type Submenu = {
-  href: string;
-  label: string;
-  active: boolean;
-};
+  href: string
+  label: string
+  active: boolean
+}
 
 type Menu = {
-  href: string;
-  label: string;
-  active: boolean;
+  href: string
+  label: string
+  active: boolean
   icon: LucideIcon
-  submenus: Submenu[];
-};
+  submenus: Submenu[]
+}
 
 type Group = {
-  groupLabel: string;
-  menus: Menu[];
-};
+  groupLabel: string
+  menus: Menu[]
+}
 
 export function getMenuList(pathname: string): Group[] {
+  const { t } = useTranslation("common")
   return [
     {
       groupLabel: "",
@@ -37,46 +39,46 @@ export function getMenuList(pathname: string): Group[] {
           label: "Dashboard",
           active: pathname.includes("/dashboard"),
           icon: LayoutGrid,
-          submenus: []
-        }
-      ]
+          submenus: [],
+        },
+      ],
     },
     {
-      groupLabel: "Contents",
+      groupLabel: "Gäste",
       menus: [
         {
           href: "",
-          label: "Posts",
-          active: pathname.includes("/posts"),
+          label: t("guest.title"),
+          active: pathname.includes("/guest"),
           icon: SquarePen,
           submenus: [
             {
-              href: "/posts",
-              label: "All Posts",
-              active: pathname === "/posts"
+              href: "/guest/list",
+              label: t("guest.list.title"),
+              active: pathname === "/guest/list",
             },
             {
-              href: "/posts/new",
-              label: "New Post",
-              active: pathname === "/posts/new"
-            }
-          ]
+              href: "/guest/new",
+              label: t("guest.new.title"),
+              active: pathname === "/guest/new",
+            },
+          ],
         },
         {
           href: "/categories",
           label: "Categories",
           active: pathname.includes("/categories"),
           icon: Bookmark,
-          submenus: []
+          submenus: [],
         },
         {
           href: "/tags",
           label: "Tags",
           active: pathname.includes("/tags"),
           icon: Tag,
-          submenus: []
-        }
-      ]
+          submenus: [],
+        },
+      ],
     },
     {
       groupLabel: "Settings",
@@ -86,16 +88,16 @@ export function getMenuList(pathname: string): Group[] {
           label: "Users",
           active: pathname.includes("/users"),
           icon: Users,
-          submenus: []
+          submenus: [],
         },
         {
           href: "/account",
           label: "Account",
           active: pathname.includes("/account"),
           icon: Settings,
-          submenus: []
-        }
-      ]
-    }
-  ];
+          submenus: [],
+        },
+      ],
+    },
+  ]
 }
