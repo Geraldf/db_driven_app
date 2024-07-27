@@ -28,7 +28,7 @@ type Group = {
   menus: Menu[]
 }
 
-export function getMenuList(pathname: string): Group[] {
+export function GetMenuList(pathname: string): Group[] {
   const { t } = useTranslation("common")
   return [
     {

@@ -19,10 +19,11 @@ export async function addAddress(
   })
 
   const d = await result.json()
-  let updatedFormState = {
+  const updatedFormState = {
     ...state,
   }
   if (result.ok) {
+    redirect("/guest/list")
     updatedFormState.status = "SUCCESS"
     return updatedFormState
   } else {

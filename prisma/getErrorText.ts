@@ -1,5 +1,5 @@
-import { errorText } from "./errors";
+import { getErrorMessageByCode } from "./errors"
 
 export const getErrorText = (errorCode: string): string => {
-	return errorText[errorCode] || "Unknown error";
-};
+  return getErrorMessageByCode(errorCode)
+}

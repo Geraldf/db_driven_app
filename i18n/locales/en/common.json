@@ -3,6 +3,7 @@
   "swedish": "Swedish",
   "chinese": "Chinese",
   "german": "German",
+  "submitText": "Save",
   "login": {
     "login": "Login",
     "register": "Register",
@@ -19,7 +20,7 @@
     "sendagain": "Resend",
     "noverification": "Please confirm your email address first. Click on 'Resend' if you want to request a verification link via email again."
   },
-  "submit": "Submit",
+  "submit": "Save",
   "user": {
     "name": "Name",
     "email": "E-Mail",
